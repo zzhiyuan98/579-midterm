@@ -4,8 +4,7 @@ const messageFeedback = document.querySelector('#problem-4 #message-feedback')
 const MAX_CHARACTERS = 50;
 
 // Write your code here
-messageFeedback.textContent = '2 characters left';
-messageInput.addEventListener('input', () => {
+function printFeedback(){
     const length = messageInput.value.length;
     if (length <= MAX_CHARACTERS) {
         const n = MAX_CHARACTERS - length;
@@ -23,4 +22,6 @@ messageInput.addEventListener('input', () => {
         messageFeedback.classList.remove('valid-feedback');
         messageFeedback.textContent = n + ' character' + addS(n) + ' too long';
     }
-});
+}
+messageInput.addEventListener('input', printFeedback);
+printFeedback();
