@@ -18,11 +18,16 @@ showRhymesButton.addEventListener('click', () => {
     rhymesOutput.innerHTML = '';
     const word = wordInput.value;
     getRhymes(word, (data) => {
-        for (const key in data) {
-            const res_word = document.createElement('li');
-            res_word.classList.add('list-group-item');
-            res_word.textContent = data[key].word;
-            rhymesOutput.append(res_word);
+        if(data.length) {
+            for (const key in data) {
+                const res_word = document.createElement('li');
+                res_word.classList.add('list-group-item');
+                res_word.textContent = data[key].word;
+                rhymesOutput.append(res_word);
+            }
+        }
+        else{
+            rhymesOutput.innerHTML = 'no rhymes';
         }
     });
 });
